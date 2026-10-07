@@ -1,0 +1,153 @@
+/* --- 全体基本設定 --- */
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent; /* タップ時の青い枠を消す */
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+  padding: 16px 12px;
+  background-color: #f2f2f7; /* iOS標準バックグラウンドカラー */
+  color: #1c1c1e;
+  overscroll-behavior: none; /* iPhoneでの引っ張りスクロール(バウンス)を防止 */
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+  text-align: center;
+  letter-spacing: -0.5px;
+}
+
+/* --- プレビューCanvasエリア --- */
+#canvas-container {
+  width: 100%;
+  background: #000;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  margin-bottom: 16px;
+}
+
+#preview-canvas {
+  width: 100%;
+  height: auto;
+  display: block;
+  touch-action: none; /* タッチ操作時のブラウザスクロールをブロック */
+  cursor: move;
+}
+
+/* --- コントロールパネル (iOSカード風) --- */
+.controls {
+  background: #ffffff;
+  padding: 16px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+}
+
+.row > * {
+  flex: 1;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #8e8e93;
+  padding-left: 2px;
+}
+
+/* --- フォームパーツ --- */
+input[type="text"], select, input[type="file"] {
+  font-size: 15px;
+  padding: 10px 12px;
+  border: 1px solid #e5e5ea;
+  border-radius: 10px;
+  background: #f2f2f7;
+  color: #000;
+  outline: none;
+  width: 100%;
+  transition: border-color 0.2s ease;
+}
+
+input[type="text"]:focus, select:focus {
+  border-color: #007aff;
+  background: #fff;
+}
+
+/* --- スライダーコントロールボックス --- */
+.slider-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f2f2f7;
+  padding: 8px 12px;
+  border-radius: 10px;
+}
+
+.slider-box label {
+  font-size: 13px;
+  color: #1c1c1e;
+  margin: 0;
+}
+
+.slider-box input[type="range"] {
+  width: 50%;
+  accent-color: #007aff; /* スライダーつまみの色 */
+}
+
+.slider-val {
+  font-size: 12px;
+  font-weight: 700;
+  color: #007aff;
+  min-width: 40px;
+  text-align: right;
+}
+
+/* --- ボタン類 --- */
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+button {
+  font-size: 15px;
+  font-weight: 600;
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.1s ease;
+}
+
+button:active {
+  opacity: 0.7;
+  transform: scale(0.98);
+}
+
+.btn-primary {
+  background: #34c759; /* iOSグリーン */
+  color: #ffffff;
+}
+
+.btn-secondary {
+  background: #8e8e93; /* iOSグレー */
+  color: #ffffff;
+}
